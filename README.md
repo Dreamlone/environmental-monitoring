@@ -41,21 +41,21 @@ over the next five years in accordance with FAIR principles.
 
 In order to achieve the stated objective, the current document has been prepared and the following actions have been performed in the process of its preparation: 
 
-- Evaluate the current structure of metadata and datasets. 
+- Evaluate the current structure of metadata and datasets (Data Exploration). 
 - Propose changes to the structure based on the evaluation. Criterion - "Interoperability"
 - Propose a plan to improve the "Accessibility" criterion by creating dataset distribution services (API, versioning, etc.).
 - Create a plan to improve the "Findability" criterion. For this purpose, it is proposed to use a robust identifier system
-- Propose a plan to improve the "Reusability" criterion. 
+- Propose a plan to improve the "Reusability" criterion through license preparation and data provenance
 
 Each of the items is described in more detail below. 
 
 ### Data exploration
 
-Based on the results of a detailed comparison of the dataset columns of different stations, the following table was prepared:
+Based on the results of a detailed comparison of the metadata dataset columns of different stations, the following table was prepared:
 
 Table 1. Observed issues per metadata dataset
 
-|                      Column                      |  Issue per Kilpisjärvi dataset  |              Issue per  Lammi dataset              |  Issue per Tvärminne dataset  |
+|                      Column                      |  Issue per Kilpisjärvi station  |              Issue per  Lammi station              |  Issue per Tvärminne station  |
 |:------------------------------------------------:|:-------------------------------:|:--------------------------------------------------:|:-----------------------------:|
 |               Name of the dataset                |                ✓                |                         ✓                          |               ✓               |
 |                     Station                      |                ✓                |                         ✓                          |         Presence nan          |
@@ -85,8 +85,8 @@ Table 1. Observed issues per metadata dataset
 |                   Other notes                    |                ✓                |                         ✓                          |               ✓               |
 |                  Contact person                  |          Presence nan           |                    Presence nan                    |         Presence nan          |
 |                   Institution                    |          Presence nan           |               No data in the column                |     No data in the column     |
-|             KBS, omat muistiinpanot              |          Presence nan           |                     Not exist                      |               -               |
-|                    LBA notes                     |                -                |                    Presence nan                    |               -               |
+|             KBS, omat muistiinpanot              |          Presence nan           |                     Not exist                      |           Not exist           |
+|                    LBA notes                     |            Not exist            |                    Presence nan                    |           Not exist           |
 
 Thus, a set of actions is required to improve the metadata structure. 
 
@@ -97,11 +97,34 @@ Based on the results of the analysis of the table structure of the xlsx page of 
 - `Station` column: It is required to enter station identifiers into the table (for station Tvärminne) and prepare a separate document listing all possible identifiers for each station abbreviation
 - `General description of data` column: Need to fill in the gaps for stations Kilpisjärvi, Lammi and Tvärminne
 - `Location` column: Need to fill in the gaps for stations Kilpisjärvi, Lammi and Tvärminne
-- `X`, `Y` and `Coordinate system`: it is proposed to indicate WGS84 coordinates everywhere instead of local metric systems (this will allow users to find a point more easily in both Google maps and other ones, as well as such coordinates are much easier to understand than multi-cypher coordinates from metric systems).
-- `Environment type`, `Other type`: предлагается обьединить эти колонки и сделать
+- `X`, `Y` and `Coordinate system` columns: it is proposed to indicate WGS84 coordinates everywhere instead of local metric systems (this will allow users to find a point more easily in both Google maps and other ones, as well as such coordinates are much easier to understand than multi-cypher coordinates from metric systems). Regardless of whether WGS84 will be used or not, it is necessary to keep the coordinates of all stations in one coordinate reference system and projection
+- `Environment type`, `Other type` columns: It is proposed to merge these columns and add a category such as “other” to the `Environment type` column
+- `Measured variables` column: to save space, consider presenting the table in long format instead of wide one (see Figure 1)
+
+TODO add the picture with visualization 
+
+Figure 1. Wide format into long format for the column `Measured variables` transformation
+
+- `Unit` column: Need to fill the gaps for stations Kilpisjärvi, Lammi and Tvärminne. If the value is dimensionless quantity, this must be specified explicitly. nan should not be in this column
+- `Spatial extent` column: Need to fill the gaps for stations Kilpisjärvi, Lammi and Tvärminne. Unification needed. Perhaps the presence of this column is redundant and its role is already fulfilled by such fields as X, Y and Location. If we assume that the column is to be saved, then it makes sense to store spatial coverage in it using bounding box coordinates instead of places name
+- `Spatial resolution` column: Need to fill the gaps for station Tvärminne. It is necessary to unify, for example, to present all information in two possible variants: meters and centimeters.
+- `Temporal extent` column: Need to fill the gaps for stations Kilpisjärvi, Lammi and Tvärminne. Unification needed: some cells indicate the dates of monitoring, others the duration
+- `Starting year` column: Need to fill the gaps for stations Kilpisjärvi, Lammi and Tvärminne. Unification needed: replace "noin 1970" with 1970 so only integers will be in the column, etc.
+- `End year` column: Need to fill the gaps for stations Lammi and Tvärminne. Unification needed: it is better to avoid presence in one column integer values and "ongoing" string
+- `Temporal resolution` column: Need to fill the gaps for stations Kilpisjärvi, Lammi and Tvärminne. A unified system for specifying the discreteness of observations should be developed
+- `Data type` column: Need to fill the gaps for stations Kilpisjärvi, Lammi and Tvärminne
+- `Format` column: Need to fill the gaps for stations Kilpisjärvi, Lammi and Tvärminne
+- `Is the dataset well described` column: Make the column take only two values: True or False
+- `In what databases the dataset has been described` column: Need to fill the gaps for stations Kilpisjärvi, Lammi and Tvärminne
+- `Is the dataset regurlarly shared somewhere` column: Make the column take only two values: True or False
+- `Is the data used in a publication` column: Make the column take only two values: True or False
+- `Where` column: Each cell can have either None or a list with links to publications so that more than one can be specified
+- `Owner` and other column: Need to fill the gaps for stations Kilpisjärvi, Lammi and Tvärminne if required and 
 
 General suggestions for improving interoperability:
-- Allow datasets to be uploaded in multiple formats, or allow the user to interact with the data through a REST API. Possible examples: Parquet, CSV, Excel, JSON, GEOJSON, Geopackage, shapefile. Converters of tabular data to such formats can be reused in other data catalogs.
+- Allow datasets to be uploaded in multiple formats, or allow the user to interact with the data through a REST API. Possible examples: _Parquet_, _CSV_, _Excel_, _JSON_, _GEOJSON_, _Geopackage_, _shapefile_. Converters of tabular data to such formats can be reused in other data catalogs.
+
+All proposed changes are planned to be implemented in a step-by-step collaboration with representatives of the institutions that own the datasets that are described in this metadata.
 
 ### Step 2. Accessibility
 
@@ -136,8 +159,19 @@ The final processing activities should be the preparation of license documents a
 To ensure Reusability, it is also necessary to describe in detail the structure of the datasets provided. This can be done by means of 
 a single web page (as a simplified example) - see [environmental-monitoring test assignment description]()
 
-## Used literature 
+### Conclusion
+
+The findings of the study were:  
+
+* Strategy for the construction of an environmental monitoring scientific data distribution system for Kilpisjärvi, Lammi and Tvärminne stations according to FAIR principles;
+* Recommendations for improving the station metadata structure and a sample with applied changes;
+* Prototype web page providing information on how to retrieve data on selected stations and with which licenses;
+* Prototype of a web service that allows using REST API to get meta-information about stations. On the basis of this backend service it will be possible to customize the systems for downloading datasets and metadata for them.
+
+### Used literature 
 
 1) [Open and FAIR data sharing policy related to writing](https://authorservices.taylorandfrancis.com/data-sharing-policies/open-and-fair/)
 2) [CCDC FAIR data principles](https://www.ccdc.cam.ac.uk/solutions/about-the-csd/fair-data-principles/?utm_term=&utm_campaign=Performance+Max+-+CrossMiner&utm_source=adwords&utm_medium=ppc&hsa_acc=9348977139&hsa_cam=20546890251&hsa_grp=&hsa_ad=&hsa_src=x&hsa_tgt=&hsa_kw=&hsa_mt=&hsa_net=adwords&hsa_ver=3&gad_source=1&gclid=Cj0KCQjw_qexBhCoARIsAFgBleuoks8GC0SdsuNmC5dOvXrvf2FJhPDD4mUh4W0vjf4q_vGhClp0ELAaAqQSEALw_wcB)
 3) [Common Data Elements: Standardizing Data Collection. Data Definition of FAIR Data](https://www.nlm.nih.gov/oet/ed/cde/tutorial/02-200.html)
+
+Document was prepared by [Mikhail Sarafanov](https://github.com/Dreamlone) 27.04.2024
