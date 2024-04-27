@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "environmental-monitoring"
+version = "0.1.0"
+description = ""
+authors = ["Dreamlone <mik_sar@mail.ru>"]
+readme = "README.md"
+packages = [{include = "environmental_monitoring"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pandas = "^2.2.2"
+matplotlib = "^3.8.4"
+seaborn = "^0.13.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
