@@ -126,6 +126,8 @@ General suggestions for improving interoperability:
 
 All proposed changes are planned to be implemented in a step-by-step collaboration with representatives of the institutions that own the datasets that are described in this metadata.
 
+Example of the station `Kilpisjärvi` sample with applied changes: https://docs.google.com/spreadsheets/d/1_a6_xrBO5CZ2aykT4Y5Dj_eqIYBIUGOE/edit?usp=sharing&ouid=117425651530373612251&rtpof=true&sd=true
+
 ### Step 2. Accessibility
 
 To make data accessible in the modern digital world, it is proposed to build a datahub ecosystem where data can be accessed using two modes: 
@@ -175,3 +177,33 @@ The findings of the study were:
 3) [Common Data Elements: Standardizing Data Collection. Data Definition of FAIR Data](https://www.nlm.nih.gov/oet/ed/cde/tutorial/02-200.html)
 
 Document was prepared by [Mikhail Sarafanov](https://github.com/Dreamlone) 27.04.2024
+
+## Demo service
+
+Current module deployed on Heroku using the following instructions: 
+
+[Deploy FastAPI on Heroku using Docker Container](https://akshaykhatale.medium.com/deploy-fastapi-on-heroku-using-docker-container-a920f839de9b)
+
+```
+heroku login
+```
+
+Launch docker daemon and then 
+```
+heroku container:login
+```
+
+```
+heroku container:push web --app environmental-monitoring
+```
+
+```
+heroku container:release web --app environmental-monitoring
+```
+
+Swagger UI available via URL: https://environmental-monitoring-82bc1f9868c5.herokuapp.com/
+
+- `login`: `university`
+- `password`: `university`
+
+For local launch there is a need to start `launch.py`
