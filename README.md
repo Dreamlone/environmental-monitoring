@@ -144,6 +144,7 @@ Then, when changing the data structure, using old references and methods, resear
 
 Examples of data platforms with relatively small budgets (can be used as references): 
 - [http://dataportal.saeri.org/](http://dataportal.saeri.org/) - Falklands islands data catalog
+- [https://geo.ca/home/](https://geo.ca/home/) - Canada’s open geospatial information
 
 ### Step 3. Findability
 
