@@ -34,7 +34,7 @@ Thus, four FAIR principles are distinguished (below are short descriptions of ea
 
 ## Proposal
 
-This section presents the first version of the draft strategy that is proposed to be applied to the original data.
+This section presents the first version of the draft strategy that is proposed to be applied to the original metadata.
 
 The aim: To develop a strategy for the establishment of `Kilpisjärvi`, `Lammi` and `Tvärminne` stations 
 over the next five years in accordance with FAIR principles. 
@@ -119,10 +119,10 @@ Figure 1. Wide format into long format for the column `Measured variables` trans
 - `Is the dataset regurlarly shared somewhere` column: Make the column take only two values: True or False
 - `Is the data used in a publication` column: Make the column take only two values: True or False
 - `Where` column: Each cell can have either None or a list with links to publications so that more than one can be specified
-- `Owner` and other column: Need to fill the gaps for stations Kilpisjärvi, Lammi and Tvärminne if required and 
+- `Owner` and other column: Need to fill the gaps for stations Kilpisjärvi, Lammi and Tvärminne if required 
 
 General suggestions for improving interoperability:
-- Allow datasets to be uploaded in multiple formats, or allow the user to interact with the data through a REST API. Possible examples: _Parquet_, _CSV_, _Excel_, _JSON_, _GEOJSON_, _Geopackage_, _shapefile_. Converters of tabular data to such formats can be reused in other data catalogs.
+- Allow datasets to be downloaded in multiple formats, or allow the user to interact with the data through a REST API. Possible examples: _Parquet_, _CSV_, _Excel_, _JSON_, _GEOJSON_, _Geopackage_, _shapefile_. Converters of tabular data to such formats can be reused in other data catalogs.
 
 All proposed changes are planned to be implemented in a step-by-step collaboration with representatives of the institutions that own the datasets that are described in this metadata.
 
@@ -135,14 +135,14 @@ To make data accessible in the modern digital world, it is proposed to build a d
 - Manual downloading of datasets in desired format;
 - Data request via REST API
 
-Realization of both ways of interaction requires implementation and deployment of the backend service. An example of 
+Implementation of both ways of interaction requires implementation and deployment of the backend service. An example of 
 such a service implemented using the technology stack `Python, Docker, heroku platform`: [API environmental monitoring service](https://environmental-monitoring-82bc1f9868c5.herokuapp.com/docs)
 
 Service versioning should be prepared for researchers and engineers. For example, when providing 
 API access to a data platform, both semantic versioning of datasets, as well as the API of the service. 
 Then, when changing the data structure, using old references and methods, researchers will be able to get the same datasets.
 
-Examples of data platforms with relatively small budgets (can be used as references): 
+The following examples of data platforms can be used as references: 
 - [http://dataportal.saeri.org/](http://dataportal.saeri.org/) - Falklands islands data catalog
 - [https://geo.ca/home/](https://geo.ca/home/) - Canada’s open geospatial information
 
@@ -167,7 +167,7 @@ Therefore, it is planned to prepare datasets in such a way that they are easily 
 
 The final processing activities should be the preparation of license documents and verification that the data have a clear provenance.
 To ensure Reusability, it is also necessary to describe in detail the structure of the datasets provided. This can be done by means of 
-a single web page (as a simplified example) - see [environmental-monitoring test assignment description](https://environmental-monitoring-82bc1f9868c5.herokuapp.com/)
+a single web page (as a simplified example) - see [environmental-monitoring description page](https://environmental-monitoring-82bc1f9868c5.herokuapp.com/)
 
 ### Conclusion
 
