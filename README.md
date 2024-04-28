@@ -23,7 +23,7 @@ FAIR data is a term outlining best practice for preserving research data. The FA
 
 <img src="https://www.ccdc.cam.ac.uk/media/FAIR-Image.png" width="750"/>
 
-Figure 1. FAIR principles brief description (the picture was taken from [CCDC software website](https://www.ccdc.cam.ac.uk/solutions/about-the-csd/fair-data-principles/?utm_term=&utm_campaign=Performance+Max+-+CrossMiner&utm_source=adwords&utm_medium=ppc&hsa_acc=9348977139&hsa_cam=20546890251&hsa_grp=&hsa_ad=&hsa_src=x&hsa_tgt=&hsa_kw=&hsa_mt=&hsa_net=adwords&hsa_ver=3&gad_source=1&gclid=Cj0KCQjw_qexBhCoARIsAFgBleuoks8GC0SdsuNmC5dOvXrvf2FJhPDD4mUh4W0vjf4q_vGhClp0ELAaAqQSEALw_wcB), 26.04.2024)
+Figure 1. FAIR principles brief description (the picture was taken from [1](https://www.ccdc.cam.ac.uk/solutions/about-the-csd/fair-data-principles/?utm_term=&utm_campaign=Performance+Max+-+CrossMiner&utm_source=adwords&utm_medium=ppc&hsa_acc=9348977139&hsa_cam=20546890251&hsa_grp=&hsa_ad=&hsa_src=x&hsa_tgt=&hsa_kw=&hsa_mt=&hsa_net=adwords&hsa_ver=3&gad_source=1&gclid=Cj0KCQjw_qexBhCoARIsAFgBleuoks8GC0SdsuNmC5dOvXrvf2FJhPDD4mUh4W0vjf4q_vGhClp0ELAaAqQSEALw_wcB), 26.04.2024)
 
 Thus, four FAIR principles are distinguished (below are short descriptions of each principle summarizing the key message): 
 
@@ -101,7 +101,7 @@ Based on the results of the analysis of the table structure of the xlsx page of 
 - `Environment type`, `Other type` columns: It is proposed to merge these columns and add a category such as “other” to the `Environment type` column
 - `Measured variables` column: to save space, consider presenting the table in long format instead of wide one (see Figure 1)
 
-TODO add the picture with visualization 
+<img src="https://raw.githubusercontent.com/Dreamlone/environmental-monitoring/main/docs/wide_long_format.png" width="500"/>
 
 Figure 1. Wide format into long format for the column `Measured variables` transformation
 
@@ -155,6 +155,13 @@ Example of data platforms that uses DOI generation:
 - [https://techdocs.gbif.org/en/](https://techdocs.gbif.org/en/) - Global Biodiversity Information Facility (GBIF)
 - [https://doi.org/10.15468/dl.f487j5](https://doi.org/10.15468/dl.f487j5) - GBIF.org (20 October 2023) GBIF Occurrence Download
 
+The following systems are used to search for datasets (in addition to standard search engines like Google, Bing, etc.): 
+* [Google Dataset Search](https://datasetsearch.research.google.com/)
+* [BASE (Bielefeld Academic Search Engine)](https://www.base-search.net/)
+* [Datacite Commons](https://commons.datacite.org/)
+
+Therefore, it is planned to prepare datasets in such a way that they are easily accessible also using these platforms.
+
 ### Step 4. Reusability
 
 The final processing activities should be the preparation of license documents and verification that the data have a clear provenance.
@@ -172,8 +179,8 @@ The findings of the study were:
 
 ### Used literature 
 
-1) [Open and FAIR data sharing policy related to writing](https://authorservices.taylorandfrancis.com/data-sharing-policies/open-and-fair/)
-2) [CCDC FAIR data principles](https://www.ccdc.cam.ac.uk/solutions/about-the-csd/fair-data-principles/?utm_term=&utm_campaign=Performance+Max+-+CrossMiner&utm_source=adwords&utm_medium=ppc&hsa_acc=9348977139&hsa_cam=20546890251&hsa_grp=&hsa_ad=&hsa_src=x&hsa_tgt=&hsa_kw=&hsa_mt=&hsa_net=adwords&hsa_ver=3&gad_source=1&gclid=Cj0KCQjw_qexBhCoARIsAFgBleuoks8GC0SdsuNmC5dOvXrvf2FJhPDD4mUh4W0vjf4q_vGhClp0ELAaAqQSEALw_wcB)
+1) [CCDC FAIR data principles](https://www.ccdc.cam.ac.uk/solutions/about-the-csd/fair-data-principles/?utm_term=&utm_campaign=Performance+Max+-+CrossMiner&utm_source=adwords&utm_medium=ppc&hsa_acc=9348977139&hsa_cam=20546890251&hsa_grp=&hsa_ad=&hsa_src=x&hsa_tgt=&hsa_kw=&hsa_mt=&hsa_net=adwords&hsa_ver=3&gad_source=1&gclid=Cj0KCQjw_qexBhCoARIsAFgBleuoks8GC0SdsuNmC5dOvXrvf2FJhPDD4mUh4W0vjf4q_vGhClp0ELAaAqQSEALw_wcB)
+2) [Open and FAIR data sharing policy related to writing](https://authorservices.taylorandfrancis.com/data-sharing-policies/open-and-fair/)
 3) [Common Data Elements: Standardizing Data Collection. Data Definition of FAIR Data](https://www.nlm.nih.gov/oet/ed/cde/tutorial/02-200.html)
 
 Document was prepared by [Mikhail Sarafanov](https://github.com/Dreamlone) 28.04.2024
