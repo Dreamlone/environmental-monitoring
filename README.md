@@ -101,7 +101,7 @@ Based on the results of the analysis of the table structure of the xlsx page of 
 - `Environment type`, `Other type` columns: It is proposed to merge these columns and add a category such as “other” to the `Environment type` column
 - `Measured variables` column: to save space, consider presenting the table in long format instead of wide one (see Figure 1)
 
-<img src="https://raw.githubusercontent.com/Dreamlone/environmental-monitoring/main/docs/wide_long_format.png" width="500"/>
+<img src="https://raw.githubusercontent.com/Dreamlone/environmental-monitoring/main/docs/wide_long_format.png" width="650"/>
 
 Figure 1. Wide format into long format for the column `Measured variables` transformation
 
