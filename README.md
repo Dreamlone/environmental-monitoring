@@ -136,7 +136,7 @@ To make data accessible in the modern digital world, it is proposed to build a d
 - Data request via REST API
 
 Realization of both ways of interaction requires implementation and deployment of the backend service. An example of 
-such a service implemented using the technology stack `Python, Docker, heroku platform`: [API environmental monitoring service]()
+such a service implemented using the technology stack `Python, Docker, heroku platform`: [API environmental monitoring service](https://environmental-monitoring-82bc1f9868c5.herokuapp.com/docs)
 
 Service versioning should be prepared for researchers and engineers. For example, when providing 
 API access to a data platform, both semantic versioning of datasets, as well as the API of the service. 
@@ -159,7 +159,7 @@ Example of data platforms that uses DOI generation:
 
 The final processing activities should be the preparation of license documents and verification that the data have a clear provenance.
 To ensure Reusability, it is also necessary to describe in detail the structure of the datasets provided. This can be done by means of 
-a single web page (as a simplified example) - see [environmental-monitoring test assignment description]()
+a single web page (as a simplified example) - see [environmental-monitoring test assignment description](https://environmental-monitoring-82bc1f9868c5.herokuapp.com/)
 
 ### Conclusion
 
@@ -176,7 +176,7 @@ The findings of the study were:
 2) [CCDC FAIR data principles](https://www.ccdc.cam.ac.uk/solutions/about-the-csd/fair-data-principles/?utm_term=&utm_campaign=Performance+Max+-+CrossMiner&utm_source=adwords&utm_medium=ppc&hsa_acc=9348977139&hsa_cam=20546890251&hsa_grp=&hsa_ad=&hsa_src=x&hsa_tgt=&hsa_kw=&hsa_mt=&hsa_net=adwords&hsa_ver=3&gad_source=1&gclid=Cj0KCQjw_qexBhCoARIsAFgBleuoks8GC0SdsuNmC5dOvXrvf2FJhPDD4mUh4W0vjf4q_vGhClp0ELAaAqQSEALw_wcB)
 3) [Common Data Elements: Standardizing Data Collection. Data Definition of FAIR Data](https://www.nlm.nih.gov/oet/ed/cde/tutorial/02-200.html)
 
-Document was prepared by [Mikhail Sarafanov](https://github.com/Dreamlone) 27.04.2024
+Document was prepared by [Mikhail Sarafanov](https://github.com/Dreamlone) 28.04.2024
 
 ## Demo service
 

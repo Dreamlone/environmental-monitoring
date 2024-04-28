@@ -1,3 +1,4 @@
+import shutil
 from enum import Enum
 from pathlib import Path
 from typing import Annotated, Union
@@ -21,7 +22,7 @@ from app.exceptions import value_error_handler
 from emo.paths import get_data_path
 
 app = FastAPI(title="Environmental monitoring service API",
-              description="API service with metadata. Web page: https://environmental-monitoring-82bc1f9868c5.herokuapp.com")
+              description="API service with metadata. Web page: [https://environmental-monitoring-82bc1f9868c5.herokuapp.com](https://environmental-monitoring-82bc1f9868c5.herokuapp.com)")
 app.mount("/templates", StaticFiles(directory="./templates"), name="templates")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 templates = Jinja2Templates(directory="templates")
@@ -101,8 +102,9 @@ def get_metadata_per_station(token: Annotated[str, Depends(get_current_user)],
 
 @app.get("/metadata_per_station_as_file")
 def get_metadata_per_station_as_file(token: Annotated[str, Depends(get_current_user)],
-                                     station: str = 'Kilpisjärvi', output_format: OutputFormat = OutputFormat.csv):
-    api_folder_results = Path(get_data_path(), 'api_results')
+                                     station: str = 'Kilpisjärvi', output_format: OutputFormat = OutputFormat.excel):
+    """ Return zip archive with desired file format """
+    api_folder_results = Path(get_data_path(), 'api_results', station)
     if api_folder_results.exists() is False:
         api_folder_results.mkdir(exist_ok=True, parents=True)
 
@@ -120,8 +122,10 @@ def get_metadata_per_station_as_file(token: Annotated[str, Depends(get_current_u
     else:
         raise ValueError(f'Format {output_format.name} does not supported')
 
-    file_path = Path(api_folder_results, file_name)
-    return FileResponse(file_path, filename=file_name)
+    file = shutil.make_archive(str(api_folder_results), 'zip', api_folder_results)
+    # Remove all temporary files
+    shutil.rmtree(api_folder_results)
+    return FileResponse(file, filename=Path(file).name)
 
 
 @app.get("/dataset_by_id")
